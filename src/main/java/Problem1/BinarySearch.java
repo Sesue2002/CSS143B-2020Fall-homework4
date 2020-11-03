@@ -1,5 +1,6 @@
 package Problem1;
 
+//Starting on problem 1 first
 public class BinarySearch {
     // This is to be done recursively
     // Do not change signature (return type, function name, parameter types)

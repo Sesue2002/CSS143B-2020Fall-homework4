@@ -31,8 +31,7 @@ public class BinarySearch {
 
         //if the middle is bigger we return the lower half of array
         if(data[mid] > target){
-            int[] dataLowerHalf = Arrays.copyOfRange(data,0, data.length / 2);
-            return binarySearch(dataLowerHalf, target);
+            return binarySearch(data, target, 0, mid - 1);
         }
         //filters to bigger helper
         if(data[mid] < target){
@@ -43,9 +42,10 @@ public class BinarySearch {
 
     //helper
     //for bigger boy
-    public static int binarySearch(int[] data, int target, int start, int end){
+    private static int binarySearch(int[] data, int target, int start, int end){
         //checking if we can already return the value
         int mid = (start + end) / 2;
+
         if(data.length == 0){
             return -1;
         }
@@ -55,10 +55,15 @@ public class BinarySearch {
         }
         //size fitting
 
-        //if the middle is bigger we return the lower half of array
-        if(data[mid] > target){
-            return binarySearch(data, target, mid + 1, end);
+        //if middle is smaller
+        if(data[mid] < target){
+            return binarySearch(data, target, 0, mid - 1);
         }
+        /*if the middle is bigger we return the lower of the upper half of array
+        if(data[mid] > target){
+        return binarySearch(data, target, mid + 1, end);
+        }
+         */
         return -1;  //if not present in the array
     }
 }

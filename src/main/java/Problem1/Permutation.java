@@ -22,6 +22,7 @@ public class Permutation {
                 }
                 resultList.add(nums[i]);
                 permute(nums, resultList, result);
+                resultList.remove(resultList.size()-1);
             }
         }
     }
